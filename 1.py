@@ -1,5 +1,3 @@
-# 26 вариант
-
 import math
 
 # Вывод G 
@@ -19,4 +17,3 @@ a = float(input("Введите число a: "))
 x = float(input("\nВведите число x: "))
 Y = math.(log(35*a**2 - 27*a*x + 4*x**2 +1))/log(2)
 print("\nY = ", Y)
-
