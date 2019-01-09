@@ -19,7 +19,7 @@ for i in range(iterations):
         if a == 0 and x == 0:
             print("\nПолучается деление на ноль.")
         else:
-            G = 0 - (3*(14*a**2 + 23*a*x - 30*x**2)) / ((0-(9*a**2)) + 37*a*x + 40*x**2)
+            G = -(3*(14*(a*2)+23*a*x-30*(x*2)))/-9*(a*2)+37*a*x+40*(x*2)
             print("\nG = ", G)
         # Возможность остановки вычислений
             answer = str(input("\nВы хотите остановить вычисления?\n"))
@@ -37,7 +37,7 @@ for i in range(iterations):
             print("\n Такой x не помещается в заданные границы")
             continue
         if (a >= -4 and a <= 4) and (x >= -4 and x <= 4):
-            F = math.0 - tan(18*a**2 - a*x - 4*x**2)
+            F = math.-tan(18*(a*2)-a*x-4*(x*2))
             print("\nF = ", F)
             # Возможность остановки вычислений
             answer = str(input("\nВы хотите остановить вычисления?\n"))
@@ -59,7 +59,7 @@ for i in range(iterations):
         if a!=0 and x !=0:
             print("\nНевозможно сосчитать функцию. Работает только при a=0 и x=0")
         else:
-            Y = math.(log(35*a**2 - 27*a*x + 4*x**2 +1))/log(2)
+            Y = math.log(35*(a*2)-27*a*x+4*(x*2)+1)/math.log(2)
             print("\nY = ", Y)
             # Возможность остановки вычислений
             answer = str(input("\nВы хотите остановить вычисления?\n"))
