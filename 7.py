@@ -41,13 +41,13 @@ for i in range(iterations):
         print("При введенных значениях a и x получается деление на ноль.")
         GFY["results_G"].append("Error")
     else:
-        G = 0 - (3*(14*a**2 + 23*a*x - 30*x**2)) / ((0-(9*a**2)) + 37*a*x + 40*x**2)
+        G = -(3*(14*(a*2)+23*a*x-30*(x*2)))/-9*(a*2)+37*a*x+40*(x*2)
         GFY["results_G"].append(G)
 
     # Вывод F
     print("Вычисление функции F ")
     if (a >= -4 and a <= 4) and (x >= -4 and x <= 4):
-        F = math.0 - tan(18*a**2 - a*x - 4*x**2)
+        F = math.-tan(18*(a*2)-a*x-4*(x*2))
         GFY["results_F"].append(F)
     
     else:
@@ -60,7 +60,7 @@ for i in range(iterations):
         GFY["results_Y"].append("Error")
         print("При введенных значениях a и x невозможно сосчитать функцию. Работает только при a=0 и x=0")
     else:
-        Y = math.(log(35*a**2 - 27*a*x + 4*x**2 +1))/log(2)
+        Y = math.log(35*(a*2)-27*a*x+4*(x*2)+1)/math.log(2)
         GFY["results_Y"].append(Y)
             
 print("Полученные значения ")
