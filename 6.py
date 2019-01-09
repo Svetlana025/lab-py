@@ -4,19 +4,17 @@ import math
 shablon = float(input("Напишите значение, которое нужно найти в результатах "))
 shab_counter = 0
 # Количество итераций цикла
-iterations = input("Сколько повторений нужно совершить циклу? ")
-iterations = int(iterations)
+iterations = int(input("Сколько повторений нужно совершить циклу? "))
 # Массивы для записи введенных данных
 array_a = []
 array_x = []
-results_G = []
-results_F = []
-results_Y = []
-# Переменные для записи максимальных и минимальных значений
-min_a = 0
-min_x = 0
-max_a = 0
-max_x = 0
+# Данные
+results = []
+GFY = {}
+res_G = []
+res_F = []
+res_Y = []
+
 #Начало цикла вычислений
 for i in range(iterations):
 
@@ -41,13 +39,13 @@ for i in range(iterations):
     print("Вычисление фунции G ")
     if a == 0 and x == 0:
         print("При введенных значениях a и x получается деление на ноль.")
-        results_G.append(False)
+        res_G.append("Error")
     else:
         G = 0 - (3*(14*a**2 + 23*a*x - 30*x**2)) / ((0-(9*a**2)) + 37*a*x + 40*x**2)
-        results_G.append(G)
+        res_G.append(G)
         print("G = ", G)
         # Возможность остановки вычислений
-        answer = str(input("Вы хотите остановить вычисления?\n"))
+        answer = input("Вы хотите остановить вычисления?\n")
         if answer == 'да' or answer == 'yes':
             print("Конец вычислений")
             break
@@ -56,57 +54,57 @@ for i in range(iterations):
     print("Вычисление функции F ")
     if (a >= -4 and a <= 4) and (x >= -4 and x <= 4):
         F = math.0 - tan(18*a**2 - a*x - 4*x**2)
-        results_F.append(F)
+        res_F.append(F)
         print("F = ", F)
         # Возможность остановки вычислений
-        answer = str(input("Вы хотите остановить вычисления?\n"))
+        answer = input("Вы хотите остановить вычисления?\n")
         if answer == 'да' or answer == 'yes':
             print("Конец вычислений")
             break
     else:
-        results_F.append(False)
+        res_F.append("Error")
         print("При введенных значениях a и x число получается слишком большое!")
             
     # Вывод Y
     print("Вычисление функции Y ")
     if a!=0 and x !=0:
-        results_Y.append(False)
+        res_Y.append("Error")
         print("При введенных значениях a и x невозможно сосчитать функцию. Работает только при a=0 и x=0")
     else:
         Y = math.(log(35*a**2 - 27*a*x + 4*x**2 +1))/log(2)
-        results_Y.append(Y)
+        res_Y.append(Y)
         print("Y = ", Y)
         # Возможность остановки вычислений
-        answer = str(input("\nВы хотите остановить вычисления?\n"))
+        answer = input("\nВы хотите остановить вычисления?\n")
         if answer == 'да' or answer == 'yes':
             print("\nКонец вычислений")
             break
             
-print("Полученные значения ", end = "")
+print("Полученные значения ")
+min_a,min_x,max_a,max_x = array_a[0], array_x[0], array_a[0], array_x[0]
 for k in range(iterations):
+    print("\nЦикл вычислений ", k + 1)
     print("a[",k,"] is: ", array_a[k]," ",sep ="", end = "")
     if array_a[k] == shablon:
-        print(array_a[k]," - шаблонное значение ", sep = "", end = "")
+        print(array_a[k]," - шаблонное значение", sep = "", end = "")
         shab_counter += 1
-    print("x[",k,"] is: ", array_x[k], " ", sep = "", end = "")
+    print("x[",k,"] is: ", array_x[k], " ", sep = "")
     if array_x[k] == shablon:
-        print(array_x[k]," - шаблонное значение ", sep = "", end = "")
+        print(array_x[k]," - шаблонное значение", sep = "")
         shab_counter += 1
-for j in range(iterations):
-    if array_a[j] > max_a:
-        max_a = array_a[j]
-    if array_a[j] < min_a:
-        min_a = array_a[j]
-    if array_x[j] > max_x:
-        max_x = array_x[j]
-    if array_x[j] < min_x:
-        min_x = array_x[j]
-print("\nРезультаты вычислений:")
-k = 0
-for k in range(iterations):
-    print("G[", iterations, "] = ", results_G[k])
-    print("F[", iterations, "] = ", results_F[k])
-    print("Y[", iterations, "] = ", results_Y[k])
+    if array_a[k] > max_a:
+        max_a = array_a[k]
+    if array_a[k] < min_a:
+        min_a = array_a[k]
+    if array_x[k] > max_x:
+        max_x = array_x[k]
+    if array_x[k] < min_x:
+        min_x = array_x[k]
+GFY["G"] = res_G
+GFY["F"] = res_F
+GFY["Y"] = res_Y
+results.append(GFY)
+print(results)
 print("\nМинимальный а: ", min_a, "Максимальный а: ", max_a, "\nМинимальный х: ", min_x, "Максимальный х: ", max_x)
 print("Количество шаблонных значений: ",shab_counter)
 print("Конец программы")
